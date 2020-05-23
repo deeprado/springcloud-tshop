@@ -1,9 +1,9 @@
 server:
-  port: 8082
+  port: 8081
 
 spring:
   application:
-      name: order
+      name: product
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: sboot
@@ -14,7 +14,4 @@ spring:
 
 
 env:
-  dev
-  
-label:
-  release
+  prod
