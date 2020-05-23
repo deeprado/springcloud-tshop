@@ -19,3 +19,6 @@ eureka:
 
 env:
   dev
+  
+label:
+  release
