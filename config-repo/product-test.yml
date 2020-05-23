@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+spring:
+  application:
+      name: product
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: sboot
+    password: sboot
+    url: jdbc:mysql://localhost/SpringCloud_Sell?characterEncoding=utf-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=PRC
+  jpa:
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+env:
+  test
