@@ -16,4 +16,4 @@ env:
   dev
 
 test:
-  test
+  test1
