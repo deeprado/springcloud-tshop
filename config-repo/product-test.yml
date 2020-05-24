@@ -14,3 +14,6 @@ spring:
 
 env:
   test
+
+test:
+  test
