@@ -17,3 +17,7 @@ env:
 
 test:
   test
+
+girl:
+  name: xiaoli
+  age: 22

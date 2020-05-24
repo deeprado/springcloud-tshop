@@ -17,3 +17,7 @@ env:
 
 test:
   test2
+
+girl:
+  name: lili
+  age: 20

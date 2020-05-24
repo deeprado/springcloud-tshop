@@ -18,3 +18,7 @@ env:
 
 test:
   test
+
+girl:
+  name: meili
+  age: 18
