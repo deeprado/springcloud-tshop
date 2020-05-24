@@ -1,0 +1,35 @@
+server:
+  port: 9080
+spring:
+  application:
+    name: config
+  profiles:
+    active: git  # 设置使用本地配置(默认是git,可以设置：subversion(SVN)，native(本地))
+  cloud:
+    config:
+      server:
+#        native:
+#          search-locations:  # 配置文件存放的目录
+#            classpath:/configs   # 相对路径
+#            D:/Proj/idea_projects/spring boot/boot_cell/3-config/config-local # 绝对路径
+
+        git:
+          uri: https://github.com/deeprado/springcloud-tshop
+          timeout: 4			# 超时时间，默认是5秒，这里随便设置
+          searchPaths: config-repo,dev,test,prod # 寻找路径，
+          force-pull: true
+#          basedir:
+#            D:\Proj\idea_projects\spring boot\boot_cell\config-repo-local
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
