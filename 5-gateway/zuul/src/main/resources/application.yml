@@ -1,0 +1,39 @@
+
+server:
+  port: 8085
+
+spring:
+  application:
+      name: zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - routes
+          - filters
+
+zuul:
+#  ratelimit:
+#    enabled: true
+#    default-policy:
+#      limit: 3
+#      refresh-interval: 60
+#      type: origin
+#
+  routes:
+    product:
+      path: /myProduct/**
+      serviceId: product
+      # 敏感头部  cookie 等
+      sensitiveHeaders:
+
+    order:
+      path: /myOrder/**
+      serviceId: order
