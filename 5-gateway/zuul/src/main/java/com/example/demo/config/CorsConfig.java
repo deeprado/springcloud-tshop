@@ -1,6 +1,7 @@
 package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -11,7 +12,7 @@ import java.util.Arrays;
  * 跨域配置
  * C - Cross  O - Origin  R - Resource  S - Sharing
  */
-//@Configuration
+@Configuration
 public class CorsConfig {
 
 	@Bean

@@ -1,10 +1,10 @@
 
 server:
-  port: 8085
+  port: 8086
 
 spring:
   application:
-      name: zuul
+      name: user
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: sboot
@@ -40,37 +40,3 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-          - routes
-          - filters
-
-zuul:
-  # 忽略全部敏感头
-  sensitiveHeaders:
-  ratelimit:
-    key-prefix: your-prefix
-    enabled: true
-    repository: JPA
-    behind-proxy: true
-    add-response-headers: true
-    default-policy-list:
-      - limit: 10
-        quota: 1000
-        refresh-interval: 60
-        type: origin
-
-  routes:
-    product:
-      path: /myProduct/**
-      serviceId: product
-      # 敏感头部  cookie 等
-      sensitiveHeaders:
-
-    order:
-      path: /myOrder/**
-      serviceId: order
