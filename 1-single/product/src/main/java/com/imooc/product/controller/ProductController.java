@@ -32,8 +32,12 @@ public class ProductController {
      * 2. 获取类目type列表
      * 3. 查询类目
      * 4. 构造数据
+     *  CrossOrigin 单个接口跨域
      */
     @GetMapping("/list")
+    @CrossOrigin(
+            allowCredentials = "true"
+    )
     public ResultVO<ProductVO> list() {
         //1. 查询所有在架的商品
         List<ProductInfo> productInfoList = productService.findUpAll();

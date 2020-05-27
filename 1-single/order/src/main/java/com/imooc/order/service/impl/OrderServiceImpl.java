@@ -117,7 +117,7 @@ public class OrderServiceImpl implements OrderService {
 
         // 2. 判断订单状态
         OrderMaster orderMaster = orderMasterOptional.get();
-        if (OrderStatusEnum.NEW.getCode() != orderMaster.getOrderStatus()) {
+        if (!OrderStatusEnum.NEW.getCode().equals(orderMaster.getOrderStatus())) {
             throw new OrderException(ResultEnum.ORDER_STATUS_ERROR);
         }
 
@@ -125,7 +125,7 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setOrderStatus(OrderStatusEnum.FINISHED.getCode());
         orderMasterRepository.save(orderMaster);
 
-        //查询订单详情
+        // 查询订单详情
         List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
         if (CollectionUtils.isEmpty(orderDetailList)) {
             throw new OrderException(ResultEnum.ORDER_DETAIL_NOT_EXIST);
