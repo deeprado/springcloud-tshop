@@ -1,0 +1,67 @@
+server:
+  port: 8082
+
+spring:
+  application:
+      name: order
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: sboot
+    password: sboot
+    url: jdbc:mysql://localhost/SpringCloud_Sell?characterEncoding=utf-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=PRC
+  jpa:
+    show-sql: true
+  zipkin:
+      base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 9000
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 20000 # feign 的超时设置
+        readTimeout: 20000
+
+hystrix:
+  command:
+    ProductClient:
+      exection:
+        isolation:
+          thread:
+             timeoutInMilliseconds: 13000
+    userGetKey:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.cloud.sleuth: DEBUG
